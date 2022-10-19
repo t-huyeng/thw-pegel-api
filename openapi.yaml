@@ -1,34 +1,65 @@
 openapi: "3.0.0"
 info:
-  description: "API Description"
+  description:
+    "Das Technisches Hilfswerk (THW) setzt Messkoffer, sogenannte Mobile-Pegel, zur Messung von Pegel an verschiedenen Stellen ein. Die Daten werden auf der zugehörigen  Seite ([Pegelkarte](http://www.thw-pegel.de/pegelkarte.php)) zur Verfügung gestellt.
+
+
+    Die zugehörige API gibt die Daten des jeweiligen Pegels zurück. Dabei kann der Pegel allerdings nicht ausgewählt werden, sondern es werden Serverseitig die Daten für den im Frontend ausgewählten Pegel zurückgegeben. Die API verfügt zudem nicht über eine `Access-Control-Allow-Origin: *` - Header, daher ist das Abrufen aus einem anderen Frontend wie zum Beispiel die Swagger UI nicht ohne eine Proxyserver möglich. Ein kostenfreier Proxyserver ist in der Server-Auswahl zum Testen der API auswählbar. Dieser Server verfügt gegebenenfalls über eine geringe Übertragungsgeschwindigkeit.
+
+
+    Diese Spezifikation ist keine offizielle Spezifikation des THWs. Bei Fragen zum Mobilen-Pegel wenden Sie sich direkt an das THW.
+
+    "
   version: "1.0.0"
-  title: "Amtsname: API Name"
+  title: "THW Pegel API"
+  contact:
+    name: THW
+    url: "http://www.thw-pegel.de/"
+    email: pegel@thw.de
 
 servers:
-  - url: "https://warnung.bund.de/api31"
+  - url: "http://www.thw-pegel.de/data"
+  - url: "https://cors-container.herokuapp.com/http://www.thw-pegel.de/data"
+    description: Enable CORS with free CORS-Container
+
+tags:
+  - name: Pegel
 
 paths:
-  /dashboard/{AGS}.json:
+  /data.json:
     get:
-      summary: Name des Endpoints
+      summary: Daten eines Pegels
+      description: Gibt die Daten der letzten 24 Stunden des Pegels als JSON zurück. Der Pegel kann nicht ausgewählt werden und wird Serverseitig gesetzt.
+      operationId: GetPegelData
+      tags:
+        - Pegel
       responses:
-        '200':
-            description: OK
-            content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/Result'
-      parameters:
-        - in: path
-          required: true
-          name: AGS
-          schema:
-            type: string
-          description: Amtlicher Gebietsschlüssel - kann z.B. von [hier](https://www.xrepository.de/api/xrepository/urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs_2021-07-31/download/Regionalschl_ssel_2021-07-31.json) bezogen werden. Die Letzten 7 Stellen müssen dabei mit "0000000" ersetzt werden, weil die Daten nur auf [Kreisebene](https://de.wikipedia.org/wiki/Amtlicher_Gemeindeschl%C3%BCssel) bereitgestellt werden. 
-          example: "example-parameter"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PegelResult"
 
-          
-components: 
-    schemas:
-      Result:
-        type: string
+components:
+  schemas:
+    PegelResult:
+      type: array
+      items:
+        type: object
+        properties:
+          Zeit:
+            type: string
+            example: 18.10.22 17:00
+          cmW:
+            type: string
+            example: "70"
+          ID:
+            type: string
+            example: "682"
+          Pegel:
+            type: string
+            example: Bärensee Stuttgart
+          Trupp:
+            type: string
+            example: OV Backnang

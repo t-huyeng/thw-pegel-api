@@ -1,14 +1,13 @@
 [[DE]](README.md)/[[EN]](README_en.md)
 
 
-# [_TEMPLATE_]
+# THW Pegel API
 
-## Quickstart
+The German Federal Agency for Technical Relief (THW) uses measuring cases, so-called "Mobile-Pegel", to measure water levels at various locations. The data is made available on the associated page ([gauge map](http://www.thw-pegel.de/pegelkarte.php)).
 
-- Add openAPI spec in German to _openapi.yml_
-- Add openAPI spec in English to _openapi_en.yml_ (or remove _openapi_en.yml_ )
-- Update _index.html_ (insert the API-name in the title)
-- Update _generator_config.yaml_ (Update all values surrounded with <>)
-- Update the url in _CNAME_ once the api has its own subdomain
-- Replace the content of README.md with a German description of the API
-- Fill (or remove) README_en.md or add README-files in other languages.
+
+The associated API returns the data of the respective level. However, the specific  level cannot be selected, but the data for the level selected in the frontend is returned on the server side. The API also does not have an `Access-Control-Allow-Origin: *` header, so retrieving it from another frontend such as the Swagger UI is not possible without a proxy server. A free proxy server can be selected in the server selection to test the API. This server may have a low transfer speed.
+
+
+
+This specification is not an official specification of THW. If you have any questions about the mobile level, contact THW directly.
