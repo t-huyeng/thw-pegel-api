@@ -1,13 +1,14 @@
 openapi: "3.0.0"
 info:
-  description: "Das THW setzt Messkoffer als Mobile Pegel ein. Die Daten werden auf der zugehörigen  Seite ([Pegelkarte](http://www.thw-pegel.de/pegelkarte.php)) zur Verfügung gestellt.
+  description:
+    "The German Federal Agency for Technical Relief (THW) uses measuring cases, so-called 'Mobile-Pegel', to measure water levels at various locations. The data is made available on the associated page ([gauge map](http://www.thw-pegel.de/pegelkarte.php)).
 
 
-    Die zugehörige API gibt die Daten des jeweiligen Pegels zurück. Dabei kann der Pegel allerdings nicht ausgewählt werden, sondern es werden Serverseitig die Daten für den im Frontend ausgewählten Pegel zurückgegeben. Die API verfügt zudem nicht über eine `Access-Control-Allow-Origin: *` - Header, daher ist das Abrufen aus einem anderen Frontend wie zum Beispiel die Swagger UI nicht ohne eine Proxy-Server möglich. Ein kostenfreier Proxy-Server ist in der Server-Auswahl zum Testen der API auswählbar. Dieser Server verfügt gegebenenfalls über eine geringe Übertragungsgeschwindigkeit.
+    The associated API returns the data of the respective level. However, the specific  level cannot be selected, but the data for the level selected in the frontend is returned on the server side. The API also does not have an `Access-Control-Allow-Origin: *` header, so retrieving it from another frontend such as the Swagger UI is not possible without a proxy server. A free proxy server can be selected in the server selection to test the API. This server may have a low transfer speed.
 
 
-    Diese Spezifikation ist keine offizielle Spezifikation des THWs. Bei Fragen zum Mobilen-Pegel wenden Sie sich direkt an das THW.
 
+    This specification is not an official specification of THW. If you have any questions about the mobile level, contact THW directly.
     "
   version: "1.0.0"
   title: "THW Pegel API"
@@ -17,9 +18,10 @@ info:
     email: pegel@thw.de
 
 servers:
-  - url: "http://www.thw-pegel.de/data"
-  - url : "https://cors-container.herokuapp.com/http://www.thw-pegel.de/data"
+  - url: "https://cors-container.herokuapp.com/http://www.thw-pegel.de/data"
     description: Enable CORS with free CORS-Container
+  - url: "http://www.thw-pegel.de/data"
+    description: "No Access-Control-Allow-Origin: *-Header set. Not working with Swagger UI."
 
 tags:
   - name: Pegel
@@ -27,8 +29,8 @@ tags:
 paths:
   /data.json:
     get:
-      summary: Daten eines Pegels
-      description: Gibt die Daten der letzten 24 Stunden des Pegels als JSON zurück. Der Pegel kann nicht ausgewählt werden und wird Serverseitig gesetzt.
+      summary: Data of a level
+      description: Returns the data of the last 24 hours of the level as JSON. The level cannot be selected and is set server-side.
       operationId: GetPegelData
       tags:
         - Pegel

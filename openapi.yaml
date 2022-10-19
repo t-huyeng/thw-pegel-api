@@ -8,7 +8,6 @@ info:
 
 
     Diese Spezifikation ist keine offizielle Spezifikation des THWs. Bei Fragen zum Mobilen-Pegel wenden Sie sich direkt an das THW.
-
     "
   version: "1.0.0"
   title: "THW Pegel API"
@@ -18,9 +17,10 @@ info:
     email: pegel@thw.de
 
 servers:
-  - url: "http://www.thw-pegel.de/data"
   - url: "https://cors-container.herokuapp.com/http://www.thw-pegel.de/data"
     description: Enable CORS with free CORS-Container
+  - url: "http://www.thw-pegel.de/data"
+    description: "No Access-Control-Allow-Origin: *-Header set. Not working with Swagger UI."
 
 tags:
   - name: Pegel

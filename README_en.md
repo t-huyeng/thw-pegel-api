@@ -1,6 +1,9 @@
 [[DE]](README.md)/[[EN]](README_en.md)
 
 
+[![.github/workflows/openapi_check.yaml](https://github.com/t-huyeng/thw-pegel-api/actions/workflows/openapi_check.yaml/badge.svg)](https://github.com/t-huyeng/thw-pegel-api/actions/workflows/openapi_check.yaml) [![.github/workflows/schemathesis.yaml](https://github.com/t-huyeng/thw-pegel-api/actions/workflows/schemathesis.yaml/badge.svg)](https://github.com/t-huyeng/thw-pegel-api/actions/workflows/schemathesis.yaml)
+
+
 # THW Pegel API
 
 The German Federal Agency for Technical Relief (THW) uses measuring cases, so-called "Mobile-Pegel", to measure water levels at various locations. The data is made available on the associated page ([gauge map](http://www.thw-pegel.de/pegelkarte.php)).

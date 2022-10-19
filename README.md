@@ -1,5 +1,9 @@
 [[DE]](README.md)/[[EN]](README_en.md)
 
+
+[![.github/workflows/openapi_check.yaml](https://github.com/t-huyeng/thw-pegel-api/actions/workflows/openapi_check.yaml/badge.svg)](https://github.com/t-huyeng/thw-pegel-api/actions/workflows/openapi_check.yaml) [![.github/workflows/schemathesis.yaml](https://github.com/t-huyeng/thw-pegel-api/actions/workflows/schemathesis.yaml/badge.svg)](https://github.com/t-huyeng/thw-pegel-api/actions/workflows/schemathesis.yaml)
+
+
 # THW Pegel API
 
 Das Technisches Hilfswerk (THW) setzt Messkoffer, sogenannte Mobile-Pegel, zur Messung von Pegel an verschiedenen Stellen ein. Die Daten werden auf der zugehörigen  Seite ([Pegelkarte](http://www.thw-pegel.de/pegelkarte.php)) zur Verfügung gestellt.
