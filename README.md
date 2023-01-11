@@ -3,7 +3,7 @@
 
 [![.github/workflows/openapi_check.yaml](https://github.com/t-huyeng/thw-pegel-api/actions/workflows/openapi_check.yaml/badge.svg)](https://github.com/t-huyeng/thw-pegel-api/actions/workflows/openapi_check.yaml) [![.github/workflows/schemathesis.yaml](https://github.com/t-huyeng/thw-pegel-api/actions/workflows/schemathesis.yaml/badge.svg)](https://github.com/t-huyeng/thw-pegel-api/actions/workflows/schemathesis.yaml)
 
-**UPDATE: Die API wird aktuell leider nicht mehr vom THW angeboten.**
+**UPDATE: Die API liefert aktuell wenig Daten.**
 
 # THW Pegel API
 

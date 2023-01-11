@@ -8,7 +8,7 @@ info:
     The German Federal Agency for Technical Relief (THW) uses measuring cases, so-called 'Mobile-Pegel', to measure water levels at various locations. The data is made available on the associated page ([gauge map](http://www.thw-pegel.de/pegelkarte.php)).
 
 
-    The associated API returns the data of the respective level. However, the specific  level cannot be selected, but the data for the level selected in the frontend is returned on the server side. The API also does not have an `Access-Control-Allow-Origin: *` header, so retrieving it from another frontend such as the Swagger UI is not possible without a proxy server. A free proxy server can be selected in the server selection to test the API. This server may have a low transfer speed.
+    The associated API returns the data of the respective level. However, the specific  level cannot be selected, but the data for the level selected in the frontend is returned on the server side. The API also does not have an `Access-Control-Allow-Origin: *` header, so retrieving it from another frontend such as the Swagger UI is not possible without a proxy server.
 
 
 
@@ -22,8 +22,6 @@ info:
     email: pegel@thw.de
 
 servers:
-  - url: "https://cors-container.herokuapp.com/http://www.thw-pegel.de/data"
-    description: Enable CORS with free CORS-Container
   - url: "http://www.thw-pegel.de/data"
     description: "No Access-Control-Allow-Origin: *-Header set. Not working with Swagger UI."
 
@@ -33,7 +31,6 @@ tags:
 paths:
   /data.json:
     get:
-      deprecated: true
       summary: Data of a level
       description: Returns the data of the last 24 hours of the level as JSON. The level cannot be selected and is set server-side.
       operationId: GetPegelData
